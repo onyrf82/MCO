@@ -1,0 +1,413 @@
+/* FONTS */
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-semi-bold.eot');
+    src: url('../fonts/gilroy-semi-bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gilroy-semi-bold.woff2') format('woff2'),
+        url('../fonts/gilroy-semi-bold.woff') format('woff'),
+        url('../fonts/gilroy-semi-bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-medium.eot');
+    src: url('../fonts/gilroy-medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gilroy-medium.woff2') format('woff2'),
+        url('../fonts/gilroy-medium.woff') format('woff'),
+        url('../fonts/gilroy-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-light.eot');
+    src: url('../fonts/gilroy-light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gilroy-light.woff2') format('woff2'),
+        url('../fonts/gilroy-light.woff') format('woff'),
+        url('../fonts/gilroy-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-bold.eot');
+    src: url('../fonts/gilroy-bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gilroy-bold.woff2') format('woff2'),
+        url('../fonts/gilroy-bold.woff') format('woff'),
+        url('../fonts/gilroy-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/gilroy-regular.eot');
+    src: url('../fonts/gilroy-regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gilroy-regular.woff2') format('woff2'),
+        url('../fonts/gilroy-regular.woff') format('woff'),
+        url('../fonts/gilroy-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* DEFAULTS */
+body, ul, li, ol, form, h1, h2, h3, h4, h5, h6, div, span, p { padding:0; margin:0; border:0; -webkit-text-size-adjust:none; -moz-text-size-adjust:none; text-size-adjust:none;}
+article, aside, dialog ,figcaption, figure, footer, header, hgroup, main, nav, section { display:block;}
+input, textarea { -webkit-appearance:none; -ms-appearance:none; appearance:none; -moz-appearance:none; -o-appearance:none; border-radius:0;}
+label { margin: 0; padding: 0;}
+* { outline:none !important;}
+strong, b { font-weight:normal;}
+ul { list-style-type:none;}
+body { font:normal 25px/42px 'gilroy'; font-weight: normal; color:var(--default); background: #ffffff;}
+body *  { box-sizing:border-box; outline:0; transition: all 400ms ease-in-out;}
+a { text-decoration:none !important; color:var(--violet); outline:none; transition: all 400ms ease-in-out;}
+img { border:none;}
+h1,h2,h3 { font-family: "gilroy" !important; font-weight: 600; color: var(--default)!important;}
+h1 { font: 84px/84px "gilroy" !important; color: var(--blanc) !important;}
+h2 { font: 70px/70px 'gilroy' !important;}
+h3 { font: 42px/42px 'gilroy' !important; margin-bottom: 25px !important;}
+p { margin-bottom: 15px; font:normal 25px/40px "gilroy"; font-weight: normal; color: var(--default);}
+*, ::before, ::after { box-sizing: border-box; transition: all ease-in-out 400ms;}
+.container { max-width: 1748px !important; width: 100% !important; padding: 0 40px !important;}
+.btn { height: 60px; padding: 0 30px; border-radius: 30px; border: 1px var(--violet) solid; font:normal 25px/60px "gilroy"; color: var(--violet);}
+.vh { height: 100vh;}
+:root {
+	--default: #252755;
+	--blanc: #ffffff;
+    --violet: #7041c6;
+    --violet-form: #d4c6ee;
+    --violet-blanc: #c4c5ec;
+    --gris: #f7f7fc;
+}
+
+/* HEADER */
+header { overflow: hidden;}
+header.fixed .logo img:last-of-type, header.fixed .nav .nav-top { display: none !important; opacity: 0 !important; transition: all 400ms ease-in-out;}
+.fixed-top { top: 8%; padding: 0 !important;}
+.navbar>.container-fluid { max-width: 1748px; width: 100%; padding: 0 40px;}
+.logo img:last-of-type, .logo-foot img:last-of-type { margin: 11px 0 0 14px;}
+.nav { position: relative;}
+
+/* MENU BURGER */
+.burger { background: var(--default); position: fixed; width: 100%; height: 100%; min-height: 100vh; z-index: 9999; padding: 75px 40px 50px; text-align: center; transform: translateX(100%); opacity: 0; transition: all 600ms ease-in-out; transition-delay: .5s; top: 0; left: 0;}
+header.active .logo img:last-of-type { display: block !important; opacity: 1 !important;}
+.menu-bar { display: none; background: transparent; width: 50px; height: 32px; border-radius: 50%; position: absolute; right: 0; top: -16px; padding-right: 0; cursor:pointer; z-index: 99999; align-items: center;}
+.menu-bar.show { display: block !important;}
+.menu-bar div{ position: absolute; width: 50px; height: 2px; right: 0; top: 50%; left: 0; margin: 0 auto; border-radius: 2px; background: var(--violet);}
+.menu-bar div:first-child { margin-top: 0;}
+.menu-bar div:nth-child(2){ margin-top: -14px;}
+.menu-bar div:nth-child(3){ margin-top: 14px;}
+header.active .burger { transform: translateX(0) !important; opacity: 1; transition: all 600ms ease-in-out;}
+.header.active .menu-bar div:nth-child(1) { transform: rotate(-45deg); transition: all ease-in-out .5s; margin-top: 0; background:var(--violet);}
+.header.active .menu-bar div:nth-child(2) { transform: rotate(45deg); transition: all ease-in-out .5s; margin-top: 0; background:var(--violet);}
+.header.active .menu-bar div:nth-child(3) { width: 0; transition: all ease-in-out .5s;}
+.burger .rs { position: absolute; right: 40px; bottom: 105px;}
+.nav-burger { max-width: 1748px; width: 100%; padding: 0 40px; margin: 0 auto; position: absolute; left: 0; right: 0; bottom: 105px; display: flex; justify-content: flex-start; align-items: flex-start;}
+.nav-burger>ul { margin-right: 130px; text-align: left;}
+.nav-burger>ul:last-of-type { margin-right: 0;}
+.nav-burger>ul>li {}
+.nav-burger>ul>li a { font: 84px/115px "gilroy" !important; font-weight: 600; color: var(--blanc); position: relative;}
+.nav-burger>ul>li a:after { content: ''; background: var(--blanc); position: absolute; left: 0; right: 0; bottom: 0; width: 0; height: 3px;}
+.nav-burger>ul>li a.active:after { width: 100%;}
+
+.nav-top>ul>li { margin-left: 70px;}
+.nav-top>ul>li:first-child { margin-left: 0;}
+.nav-top>ul>li a { display: block; position: relative; font: 24px/80px "gilroy" !important; color: var(--blanc);}
+.nav-top>ul>li a:after { content: ''; background: var(--blanc); width: auto; height: 3px; position: absolute; left: 0; right: 0; bottom: -5px; opacity: 0;}
+.nav-top>ul>li a.active:after { bottom: 0; opacity: 1;}
+.banner { display: flex; justify-content: flex-start; align-items: center; position: absolute; top: 0; z-index: 50;}
+.slider img { height: 100vh; display: block; width: 100%; height: 100vh; object-fit: cover; object-position: initial;}
+.textBanner { padding: 0 195px; position: absolute; top: 0;}
+.textBanner>div { margin-bottom: -140px;}
+.textBanner p { max-width: 570px; width: 100%; margin-top: 25px; font: 25px/40px "gilroy" !important; color: var(--blanc);}
+
+/* MAIN */
+main { overflow: hidden;}
+.blocImg { max-width: 600px; width: 50%; padding-right: 20px; position: relative; margin-bottom: -15%; margin-left: 5%;}
+.blocImg>div { border-radius: 35px; overflow: hidden;}
+.blocImg img { object-fit: cover; object-position: center;}
+.imgBig img { width: 600px; height: 600px;}
+.imgSmall { position: absolute; top: -203px; right: -85px; z-index: 5; box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -webkit-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -moz-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19);}
+.imgSmall img { width: 317px; height: 317px;}
+.imgVerySmall { position: absolute; bottom: 90px; left: -108px; z-index: 5; box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -webkit-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -moz-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19);}
+.imgVerySmall img { width: 216px; height: 216px;}
+.blocText { max-width: 780px; width: 50%; padding-left: 20px;}
+.blocTitre { margin-bottom: 55px;}
+.blocText .btn { margin-top: 45px;}
+
+#section2 p { font: 70px/73px "gilroy";}
+#section2 .row { margin-left: -60px; margin-right: -60px;}
+.textExpertise { padding-left: 60px; padding-right: 60px;}
+.textExpertise p:last-of-type { font-size: 19px; color: var(--violet-blanc);}
+
+.img-expertise { width: 217px;}
+.img-expertise1 { position: absolute; bottom: 0; right: 140px;}
+.img-expertise1 img { transform: rotate(13deg);}
+.img-expertise2 { position: absolute; bottom: 0; right: 60px;}
+.img-expertise2 img { transform: rotate(-17deg);}
+.img-expertise3 { position: absolute; top: -240px; right: 0;}
+.img-expertise3 img { transform: rotate(5deg);}
+.img-expertise img { display: block; width: 217px; height: 217px; object-fit: cover; object-position: center; border-radius: 35px; overflow: hidden; box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -webkit-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19); -moz-box-shadow: -20px 15px 20px -15px rgba(0,0,0,0.19);}
+
+#section4 { background: var(--gris); padding-top: 200px; padding-bottom: 155px;}
+.projets { margin-top: 75px; margin-left: -30px; margin-right: -30px;}
+.projets>div { padding-left: 30px; padding-right: 30px;}
+.card { background: transparent !important; border: none !important; border-radius: 0 !important; margin-bottom: 120px;}
+.card-body { padding: 45px 40% 0 0; position: relative;}
+.projets .card-title { color: var(--default);}
+.btnAdd { position: absolute; top: 50px; right: 0; font: 47px/42px "gilroy"; font-weight: 300; color: var(--default);}
+.card-body p { font-size: 19px;}
+.card img { display: block;}
+
+#section5 { padding-top: 160px; padding-bottom: 155px;}
+.slide-partenaire { margin-top: 60px;}
+.slide-partenaire>div { margin: 75px 0;}
+
+#section6 { background: url(../images/banner-hello.jpg) center bottom no-repeat; background-size: cover;}
+#section6 .blocTitre span { display: block; margin-bottom: 45px;}
+.hello ul>li {margin-bottom: 35px;}
+.hello ul>li:last-child {margin-bottom: 0;}
+.hello ul>li>span { display: block; font: 25px/35px "gilroy";}
+.hello ul>li>a { display: inline-block; font: 25px/35px "gilroy"; color: var(--default) !important; position: relative;}
+.hello ul>li>a:after, .textModal a:after { content:''; background: var(--default); position: absolute; width: 100%; height: 1px; left: 0; bottom: 0;}
+
+#section7 { background: var(--default); width: auto; margin: 0 -50px; padding: 60px 0; transform: rotate(-3deg); margin-top: -60px;}
+marquee { vertical-align: middle;}
+#section7 a { margin: 0 37px; font: 42px/42px "gilroy";}
+#section7 a:nth-child(even) { font-weight: normal; color: #7041c6;}
+#section7 a:nth-child(odd) { font-weight: 600; color: var(--violet);}
+
+#section8 .blocTitre { margin-bottom: 105px;}
+.form-control { height: 80px !important; margin-bottom: 28px; padding: 0 38px !important; font-size: 23px; font-weight: normal; line-height: 80px;  color: var(--violet) !important; border: 1px solid var(--violet-form) !important;  border-radius: 40px !important;background: #fff !important;}
+.form-control:focus { color: var(--default) !important; border-color: var(--violet) !important; box-shadow: 0 0 0 0.2rem rgb(112 65 198 / 45%) !important;}
+textarea.form-control { min-height: 400px; margin-bottom: 10px; resize: none;}
+.form-text { margin-top: 0; font: 14px/34px "gilroy"; color: var(--default) !important;}
+.btn-envoi { background: transparent !important; border: none !important; padding: 0 !important; margin: 0 !important; font: 22px/34px "gilroy"; font-weight: 600 !important; color: var(--default) !important;}
+.form-control input::placeholder  { font: 23px/80px "gilroy"; font-weight: normal; color: #ceced5; opacity: 1;}
+.form-control::-webkit-input-placeholder, .form-control::-webkit-input-placeholder, .form-control::-webkit-input-placeholder { font: 23px/80px "gilroy"; font-weight: normal; color: #ceced5; opacity: 1;}
+.form-control::-moz-placeholder, .form-control::-moz-placeholder, .form-control::-moz-placeholder { font: 23px/80px "gilroy"; font-weight: normal; color: #ceced5; opacity: 1 !important;}
+.form-control::-ms-input-placeholder, .form-control::-ms-input-placeholder, .form-control::-ms-input-placeholder { font: 23px/80px "gilroy"; font-weight: normal; color: #ceced5; opacity: 1;}
+.form-row { margin-right: -12px; margin-left: -12px;}
+.form-row>.col, .form-row>[class*=col-] { padding-right: 12px; padding-left: 12px;}
+
+/* MODAL */
+#modal { padding: 0 !important;}
+.sousModal { background: var(--blanc); display: flex; justify-content: space-between; align-items: center;}
+.textModal { width: 720px;}
+.textModal>div { max-width: 575px; width: 100%; padding: 0 40px; margin: 0 auto;}
+.textModal span { font: 24px/38px "gilroy"; font-weight: 500;}
+.textModal h2 { display: block; margin: 50px 0; font: 67px/67px "gilroy" !important; font-weight: 600 !important;}
+.textModal a { font-weight: 600 !important; color: var(--default); position: relative;}
+.imgModal { min-width: 550px; overflow: hidden;}
+.imgModal img { display: block; width: 100%; height: 660px; object-fit: cover; object-position: center;}
+
+/* FOOTER */
+footer { background: var(--default); padding: 115px 0 100px;}
+.foot-top { margin-bottom: 25px; padding-bottom: 115px; position: relative;}
+.foot-top:after { content: ''; border-bottom: 1.5px var(--blanc) solid; position: absolute; left: 15px; right: 15px; bottom: 0;}
+.coor, .coor a { color: var(--blanc); font: 25px/35px "gilroy";}
+.coor a { margin-top: 5px; font-weight: 600;}
+.rs a { display: block; width: 60px; height: 60px; border-radius: 50%; border: 1px var(--blanc) solid;}
+.rs a:nth-child(2) { margin: 0 20px;}
+.legales a, .droits span { font: 19px/35px "gilroy"; color: var(--blanc);}
+.legales a { color: var(--blanc); margin-right: 7%;}
+.legales a:last-of-type { margin-right: 0;}
+
+/* ANIMATION */
+.logo:hover, .projets a:hover img, .slide-partenaire a:hover, #section7 a:hover { opacity: .7;}
+.nav-top>ul>li:hover a:after { bottom: 0; opacity: 1;}
+.nav-burger>ul>li a:hover:after { width: 100%;}
+.hello ul>li>a:hover:after, .textModal a:hover:after { width: 0;}
+.coor a:hover, .btn-envoi:hover, .textModal a:hover { color: var(--violet) !important;}
+.rs a:hover { border-color: var(--violet); background-color: var(--violet);}
+.btnAdd:hover { color: var(--violet); transform: rotate(360deg);}
+.btn:hover { border-color: var(--violet); background-color: var(--violet); color: var(--blanc);}
+.projets a:hover .card-title, .legales a:hover { color: var(--violet);}
+.projets a:hover .btnAdd { color: var(--violet); transform: rotate(360deg);}
+
+/* RESPONSIVE */
+@media (max-height:980px) {
+    .vh { height: auto !important;}
+    header, .textBanner { height: 100vh !important;}
+    #section1 { margin: 200px 0;}
+    #section2 { margin: 400px 0 200px;}
+    #section3 { margin: 400px 0 300px;}
+    #section6 { padding: 150px 0 200px;}
+    #section8 { margin: 250px 0 150px;}
+}
+@media (max-width:1680px) {
+    .textBanner { padding: 0 0 0 80px;}
+    .slide-partenaire>div { margin: 50px 0;}
+    .slide-partenaire img { display: block; width: auto; height: auto; max-width: 90%; max-height: 100px;  margin: 0 auto;}
+}
+@media (max-width:1380px) {
+    .slide-partenaire>div { margin: 30px 0;}
+    .nav-top>ul>li { margin-left: 40px;}
+    .vh { height: auto !important;}
+    header, .textBanner { height: 100vh !important;}
+    #section1, #section8 { margin: 100px 0;}
+    #section2 { margin: 200px 0;}
+    #section3 { margin: 200px 0 100px;}
+    #section4, #section5 { padding-top: 100px;  padding-bottom: 100px;}
+    #section6 { padding: 100px 0 200px;}
+    .blocImg { margin-bottom: -15%; margin-left: 0;}
+    .imgSmall { right: -30px;}
+    .imgVerySmall { bottom: -75px; left: 10%;}
+}
+@media (max-width:1200px) {
+    .fixed-top { top: 40px;}
+    .burger>.container { padding: 0 !important;}
+    .burger .fixed-top { top: 5%;}
+    .burger .logo { justify-content: center !important; align-items: center !important; position: absolute; top: 8%; left: 40px;}
+    .burger { min-height: 100vh; display: flex; justify-content: flex-start; align-items: center;}
+    .nav-burger { padding: 0; margin: 0 auto; position: relative; bottom: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; height: 100vh;}
+    .nav-burger>ul { margin-right: 0; text-align: center; width: 100%;}
+    .nav-burger>ul>li a { font: 50px/85px "gilroy" !important;}
+    .nav .nav-top { display: none !important; opacity: 0 !important;}
+    .burger .rs { right: 0; bottom: 35px; left: 0; justify-content: center !important;}
+    .menu-bar { display: block !important;}
+    .vh { height: auto !important;}
+    header, .textBanner { height: 100vh !important;}
+    .navbar>.container-fluid, .textBanner { padding: 0 40px; width: 100%;}
+    #section1, #section8 { margin: 50px 0;}
+    .blocImg { padding-right: 35px; margin-bottom: 0;}
+    .imgBig img { width: 100%; height: auto;}
+    .imgSmall { position: absolute; top: -115px; right: -10px;}
+    .imgSmall img { width: 250px; height: 250px;}
+    .imgVerySmall { bottom: -80px; left: 35px;}
+    .imgVerySmall img { width: 175px; height: 175px;}
+    .blocText { padding-left: 35px;}
+    #section2 { margin: 100px 0;}
+    #section3 .textExpertise { padding-left: 15px !important; padding-right: 15px !important;}
+    #section4 { padding-top: 50px; padding-bottom: 50px;}
+    .projets { margin-top: 50px; margin-left: -15px; margin-right: -15px;}
+    .projets>div { padding-left: 15px; padding-right: 15px;}
+    .card { margin-bottom: 75px;}
+    .card-body { padding: 45px 0 0; text-align: center;}
+    #section5 { padding-top: 50px; padding-bottom: 50px;}
+    .slide-partenaire { margin-top: 50px;}
+    .slide-partenaire div { margin: 0 !important; transition: none;}
+    .slide-partenaire .slick-track { display: flex; align-items: center;}
+    .slide-partenaire .slick-track .slick-slide { margin: 0 20px;}
+    .slide-partenaire .col-lg-3 { -ms-flex: 100% !important; flex: 1 !important; max-width: 100% !important;}
+    #section6 { padding: 50px 0;}
+    #section7 { margin: 0; padding: 25px 0; transform: none;}
+    #section8 .blocTitre { margin-bottom: 50px;}
+    .textModal { width: 60%;}
+    .textModal>div { max-width: 575px; width: 100%; padding: 0 40px;}
+    .imgModal { min-width: 40%; overflow: hidden;}
+    footer { padding: 50px 0;}
+    .foot-top { padding-bottom: 50px;}
+}
+@media (max-width: 992px) {
+    #section1>.container { flex-direction: column-reverse !important;}
+    .blocText { width: 100%; padding-left: 0; text-align: center;}
+    .blocTitre { margin-bottom: 30px;}
+    h2 { font: 45px/45px 'gilroy' !important;}
+    h3 { font: 30px/30px 'gilroy' !important;}
+    #section2 { margin: 100px 0 70px;}
+    #section2 p { font: 40px/45px "gilroy";}
+    #section7 a { margin: 0 30px; font: 25px/35px "gilroy";}
+    .blocImg { width: 100%; padding-right: 0; margin-top: 100px; margin-left: 0;}
+    .imgSmall { position: absolute; top: -50px; right: -100px;}
+    .imgVerySmall { bottom: -25px; left: -75px;}
+    #section2 { margin: 75px 0 50px;}
+    .textExpertise { margin-bottom: 25px; display: flex; justify-content: flex-start; align-items: flex-start;}
+    .img-expertise { min-width: 245px; margin-right: 20px; position: relative; top: 0 !important; bottom: 0; right: 0; transform: none !important;}
+    .img-expertise img { border-radius: 30px;}
+    #section3 { margin: 50px 0 15px;}
+    .projets .card-title { padding: 0 40px;}
+    .card { margin-bottom: 50px;}
+    .card-body { padding: 30px 0 0;}
+    .textModal h2 { margin: 25px 0; font: 50px/50px "gilroy" !important;}
+}
+@media (max-width: 768px) {
+    h1 { font: 60px/60px "gilroy" !important;}
+    p { font: normal 22px/30px "gilroy";}
+    .textBanner>div { margin-bottom: 0;}
+    .blocText .btn { margin-top: 20px;}
+    .blocImg>div { border-radius: 30px;}
+    .imgSmall { width: 40%; top: -70px; right: 30px;}
+    .imgSmall img, .imgVerySmall img { width: 100%; height: auto;}
+    .imgVerySmall { width: 25%; bottom: -45px; left: 25px;}
+    textarea.form-control { min-height: 300px;}
+    .form-control { height: 50px; margin-bottom: 20px; padding: 0 20px; font-size: 18px; line-height: 50px;}
+    .btn { height: 45px; padding: 0 20px; font: normal 20px/42px "gilroy";}
+    .textExpertise { margin-bottom: 45px; justify-content: center; align-items: center; flex-direction: column; text-align: center;}
+    .img-expertise { margin-right: 0; margin-bottom: 45px;}
+    .img-expertise img { display: block; width: 100%; height: auto;}
+    .burger { min-height: 650px;}
+    .nav-burger>ul>li a { font: 30px/45px "gilroy" !important;}
+    .form-row { margin-right: -5px !important; margin-left: -5px !important;}
+    .form-row>.col, .form-row>[class*=col-] { padding-right: 5px !important; padding-left: 5px !important;}
+    .btnAdd { top: 25px;}
+    .card img { display: block; width: 100%; height: auto;}
+    .form-control input::placeholder  { font: 18px/50px "gilroy";}
+    .form-control::-webkit-input-placeholder, .form-control::-webkit-input-placeholder, .form-control::-webkit-input-placeholder { font: 18px/50px "gilroy";}
+    .form-control::-moz-placeholder, .form-control::-moz-placeholder, .form-control::-moz-placeholder { font: 18px/50px "gilroy";}
+    .form-control::-ms-input-placeholder, .form-control::-ms-input-placeholder, .form-control::-ms-input-placeholder { font: 18px/50px "gilroy";}
+    .sousModal { flex-direction: column-reverse;}
+    .textModal { width: 100%; padding: 40px 0;}
+    .imgModal { min-width: 100%;}
+    .imgModal img { height: 450px;}
+    #section6 .blocTitre span { margin-bottom: 30px;}
+
+    /* footer */
+    footer { padding: 50px 0;}
+    .legales { flex-direction: column !important; margin-bottom: 15px;}
+    .legales a { margin-right: 0;}
+    .foot-top { padding-bottom: 50px;}
+    .lgo, .coor { margin-bottom: 25px;}
+}
+@media (max-width:600px) {
+    .burger { min-height: 650px;}
+    .nav-burger>ul>li a { font: 30px/45px "gilroy" !important;}
+    .menu-bar { top: -10px;}
+    header, .textBanner { height: auto !important;}
+    .textBanner { padding: 150px 20px 20px !important; text-align: center;}
+    h1 { font: 40px/40px "gilroy" !important;}
+    h2 { font: 35px/35px 'gilroy' !important;}
+    h3 { font: 30px/30px 'gilroy' !important;}
+    .slider img { height: 100%; min-height: 570px;}
+    .navbar>.container-fluid, .textBanner { padding: 0 20px;}
+    .burger .logo { left: 20px;}
+    p { font: normal 18px/28px "gilroy";}
+    .container { padding: 0 20px !important;}
+    #section1 { margin: 20px 0;}
+    .textBanner p { font: 20px/30px "gilroy" !important;}
+    .blocImg { margin-top: 115px;}
+    .blocImg>div { border-radius: 15px;}
+    #section2 { margin: 100px 0 65px;}
+    #section2 .row { margin-left: -15px; margin-right: -15px;}
+    #section2 p>br { display: none;}
+    #section2 p { font: 30px/30px "gilroy";}
+    #section3 { margin: 50px 0 30px;}
+    #section3 .textExpertise:last-of-type { margin-bottom: 0 !important;}
+    #section4 { padding-top: 30px; padding-bottom: 40px;}
+    .slide-partenaire { margin-top: 30px;}
+    .logo img:last-of-type, .burger .logo img:last-of-type, header.active .logo img:last-of-type { display: none !important;}
+    .btnAdd { top: 15px;}
+    .card { margin-bottom: 25px;}
+    .card-body { padding: 20px 0 0;}
+    #section5 { padding-top: 30px; padding-bottom: 30px;}
+    #section6 { padding: 30px 0 50px;}
+    #section8 { margin: 30px 0;}
+    #section8 .blocTitre { margin-bottom: 30px;}
+    .droits { text-align: center;}
+    .textModal { padding: 20px 0;}
+    .textModal>div { padding: 0 20px;}
+    .textModal h2 { margin: 20px 0; font: 35px/35px "gilroy" !important;}
+
+    footer { padding: 35px 0 30px;}
+    .foot-top { padding-bottom: 30px;}
+    .legales a, .droits span { text-align: center; font: 16px/25px "gilroy";}
+    .coor, .coor a { font: 20px/30px "gilroy";}
+}
+@media (max-width:560px) {
+    .hello { text-align: center;}
+}
